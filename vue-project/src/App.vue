@@ -10,7 +10,7 @@
   <body class=" full-screen">
 
   <section class="flex flex-col md:flex-col sm:mx-16 lg:mx-20">
-    <h2 class="text-2xl text-center py-6">Make yourself your workout with the name/description and choose the repetitions</h2>
+    <h2 class="text-md text-center py-8 px-12">Make yourself your workout with the name/description and choose the repetitions</h2>
   <div class="flex flex-col justify-center align-between">
 
     <div class="flex justify-center">
@@ -63,10 +63,10 @@
         </thead>
         <tbody>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"> 
-              <th class="px-6 py-4 text-gray-900">3x10-12</th>
+              <th class="px-6 py-4 text-gray-900">3x8-10 (heavy weight, low reps)</th>
           </tr>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"> 
-              <th class="px-6 py-4 text-gray-900">4x10-12</th>
+              <th class="px-6 py-4 text-gray-900">4x10-12 (low weight, high reps)</th>
           </tr>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-if="showOutput" v-for="(option, index) in selectedOptions" :key="index">
             <td class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
@@ -107,7 +107,7 @@ export default {
     }
   },
   methods: {
-    addWorkout(option) {
+    addWorkout() {
       const newWorkouts = this.workoutText;
       this.workoutText = '';
       this.workouts = [
@@ -126,11 +126,11 @@ export default {
     },
     getDescription(option) {
       if (option === 'easy') {
-        return '4x10-12';
+        return '4x10-12 (low weight, high reps)';
       } else if (option === 'medium') {
-        return '4x8-10';
+        return '4x8-10 (medium weight, high reps)';
       } else if (option === 'advanced') {
-        return '3x8-10';
+        return '3x8-10 (heavy weight, low reps)';
       }
       return '';
     }
